@@ -13,5 +13,5 @@
 <!-- Display all tools to the web page -->
 @foreach (var t in Model.Tools)
 {
-  <p>@Html.DisplayFor(modelItem => t.ToolName) @Html.DisplayFor(modelItem => t.ToolClub)</p>
+  <p><b>Tool Name:</b> @Html.DisplayFor(modelItem => t.ToolName) <b> Tool used on:</b> @Html.DisplayFor(modelItem => t.ToolClub)</p>
 }
