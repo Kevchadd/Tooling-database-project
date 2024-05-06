@@ -1,0 +1,48 @@
+@page
+@model Final_Project.Pages.Tools.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               @Html.DisplayNameFor(model => model.Tool[0].ToolName)
+            </th>
+            <th>
+               @Html.DisplayNameFor(model => model.Tool[0].ToolClub)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tool[0].InService)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Tool) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ToolName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ToolClub)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InService)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ToolId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ToolId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ToolId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

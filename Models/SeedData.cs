@@ -21,6 +21,10 @@ namespace Final_Tooling_Project.Models
                         ToolName = "Screwdriver 1",
                         ToolClub = "Wedge",                        
                         InService = false,
+                        Locations = new List<Location>
+                        {
+                            new Location {LocationDesc= "Building 4"}
+                        }
                     }
                     ,
                      new Tool
@@ -28,22 +32,35 @@ namespace Final_Tooling_Project.Models
                         ToolName = "Screwdriver 2",
                         ToolClub = "8 iron",
                         InService = true,
-
+                         Locations = new List<Location>
+                        {
+                            new Location {LocationDesc= "Building 4"}
                         }
+                        
+
+                    }
                 ,
                      new Tool
                     {
                         ToolName = "Screwdriver 3",
                         ToolClub = "Putter",
                         InService = true,
-
+                         Locations = new List<Location>
+                        {
+                            new Location {LocationDesc= "Building 3"}
                         }
+
+                    }
                     ,
                      new Tool
                     {
                         ToolName = "Screwdriver 4",
                         ToolClub = "6 iron",
                         InService = true,
+                         Locations = new List<Location>
+                        {
+                            new Location {LocationDesc= "Building 1"}
+                        }
 
                     },
                       new Tool
@@ -51,6 +68,10 @@ namespace Final_Tooling_Project.Models
                         ToolName = "Screwdriver 5",
                         ToolClub = "Driver",
                         InService = false,
+                         Locations = new List<Location>
+                        {
+                            new Location {LocationDesc= "Building 1"}
+                        }
 
                     },
                        new Tool
@@ -58,6 +79,10 @@ namespace Final_Tooling_Project.Models
                         ToolName = "Scale 1",
                         ToolClub = "Driver",                        
                         InService = true,
+                         Locations = new List<Location>
+                        {
+                            new Location {LocationDesc= "Building 2"}
+                        }
                     }
                     ,
                      new Tool
@@ -65,22 +90,34 @@ namespace Final_Tooling_Project.Models
                         ToolName = "Scale 2",
                         ToolClub = "Putter",
                         InService = true,
-
+                         Locations = new List<Location>
+                        {
+                            new Location {LocationDesc= "Building 1"}
                         }
+
+                    }
                 ,
                      new Tool
                     {
                         ToolName = "Scale 3",
                         ToolClub = "Wedge",
                         InService = true,
-
+                         Locations = new List<Location>
+                        {
+                            new Location {LocationDesc= "Building 4"}
                         }
+
+                    }
                     ,
                      new Tool
                     {
                         ToolName = "Scale 4",
                         ToolClub = "9 iron",
                         InService = false,
+                         Locations = new List<Location>
+                        {
+                            new Location {LocationDesc= "Building 3"}
+                        }
 
                     },
                       new Tool
@@ -88,6 +125,10 @@ namespace Final_Tooling_Project.Models
                         ToolName = "Scale 5",
                         ToolClub = "6 iron",
                         InService = true,
+                         Locations = new List<Location>
+                        {
+                            new Location {LocationDesc= "Building 2"}
+                        }
 
                     },
                      new Tool
@@ -95,6 +136,10 @@ namespace Final_Tooling_Project.Models
                         ToolName = "Press 1",
                         ToolClub = "5 iron",                        
                         InService = true,
+                         Locations = new List<Location>
+                        {
+                            new Location {LocationDesc= "Building 2"}
+                        }
                     }
                     ,
                      new Tool
@@ -102,22 +147,34 @@ namespace Final_Tooling_Project.Models
                         ToolName = "Press 2",
                         ToolClub = "9 iron",
                         InService = true,
-
+                         Locations = new List<Location>
+                        {
+                            new Location {LocationDesc= "Building 1"}
                         }
+
+                    }
                 ,
                      new Tool
                     {
                         ToolName = "Press 3",
                         ToolClub = "Putter",
                         InService = true,
-
+                         Locations = new List<Location>
+                        {
+                            new Location {LocationDesc= "Building 3"}
                         }
+
+                    }
                     ,
                      new Tool
                     {
                         ToolName = "Press 4",
                         ToolClub = "Driver",
                         InService = true,
+                         Locations = new List<Location>
+                        {
+                            new Location {LocationDesc= "Building 1"}
+                        }
 
                     },
                       new Tool
@@ -125,6 +182,10 @@ namespace Final_Tooling_Project.Models
                         ToolName = "Press 5",
                         ToolClub = "Wedge",
                         InService = false,
+                         Locations = new List<Location>
+                        {
+                            new Location {LocationDesc= "Building 3"}
+                        }
 
                     },
                      new Tool
@@ -132,6 +193,10 @@ namespace Final_Tooling_Project.Models
                         ToolName = "Depth gauge 1",
                         ToolClub = "5 iron",                        
                         InService = true,
+                         Locations = new List<Location>
+                        {
+                            new Location {LocationDesc= "Building 4"}
+                        }
                     }
                     ,
                      new Tool
@@ -139,6 +204,10 @@ namespace Final_Tooling_Project.Models
                         ToolName = "Depth gauge 2",
                         ToolClub = "9 iron",
                         InService = true,
+                         Locations = new List<Location>
+                        {
+                            new Location {LocationDesc= "Building 4"}
+                        }
 
                         }
                 ,
@@ -147,14 +216,22 @@ namespace Final_Tooling_Project.Models
                         ToolName = "Depth gauge 3",
                         ToolClub = "Putter",
                         InService = true,
-
+                         Locations = new List<Location>
+                        {
+                            new Location {LocationDesc= "Building 1"}
                         }
+
+                    }
                     ,
                      new Tool
                     {
                         ToolName = "Depth gauge 4",
                         ToolClub = "Driver",
                         InService = true,
+                         Locations = new List<Location>
+                        {
+                            new Location {LocationDesc= "Building 2"}
+                        }
 
                     },
                       new Tool
@@ -162,6 +239,10 @@ namespace Final_Tooling_Project.Models
                         ToolName = "Depth gauge 5",
                         ToolClub = "Wedge",
                         InService = true,
+                         Locations = new List<Location>
+                        {
+                            new Location {LocationDesc= "Building 2"}
+                        }
 
                     },
                      new Tool
@@ -169,6 +250,10 @@ namespace Final_Tooling_Project.Models
                         ToolName = "Bench Vise 1",
                         ToolClub = "5 iron",                        
                         InService = true,
+                         Locations = new List<Location>
+                        {
+                            new Location {LocationDesc= "Building 4"}
+                        }
                     }
                     ,
                      new Tool
@@ -176,22 +261,34 @@ namespace Final_Tooling_Project.Models
                         ToolName = "Bench Vise 2",
                         ToolClub = "9 iron",
                         InService = true,
-
+                         Locations = new List<Location>
+                        {
+                            new Location {LocationDesc= "Building 1"}
                         }
+
+                    }
                 ,
                      new Tool
                     {
                         ToolName = "Bench Vise 3",
                         ToolClub = "Putter",
                         InService = true,
-
+                         Locations = new List<Location>
+                        {
+                            new Location {LocationDesc= "Building 1"}
                         }
+
+                    }
                     ,
                      new Tool
                     {
                         ToolName = "Bench Vise 4",
                         ToolClub = "Driver",
                         InService = true,
+                         Locations = new List<Location>
+                        {
+                            new Location {LocationDesc= "Building 2"}
+                        }
 
                     },
                       new Tool
@@ -199,6 +296,10 @@ namespace Final_Tooling_Project.Models
                         ToolName = "Bench Vise 5",
                         ToolClub = "Wedge",
                         InService = true,
+                         Locations = new List<Location>
+                        {
+                            new Location {LocationDesc= "Building 3"}
+                        }
 
                     }
 

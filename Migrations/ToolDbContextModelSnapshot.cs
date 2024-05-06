@@ -16,6 +16,26 @@ namespace Final_Project.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.4");
 
+            modelBuilder.Entity("Final_Tooling_Project.Models.Location", b =>
+                {
+                    b.Property<int>("LocationId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("LocationDesc")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("ToolId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("LocationId");
+
+                    b.HasIndex("ToolId");
+
+                    b.ToTable("Locations");
+                });
+
             modelBuilder.Entity("Final_Tooling_Project.Models.Tool", b =>
                 {
                     b.Property<int>("ToolId")
@@ -36,6 +56,22 @@ namespace Final_Project.Migrations
                     b.HasKey("ToolId");
 
                     b.ToTable("Tools");
+                });
+
+            modelBuilder.Entity("Final_Tooling_Project.Models.Location", b =>
+                {
+                    b.HasOne("Final_Tooling_Project.Models.Tool", "Tool")
+                        .WithMany("Locations")
+                        .HasForeignKey("ToolId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Tool");
+                });
+
+            modelBuilder.Entity("Final_Tooling_Project.Models.Tool", b =>
+                {
+                    b.Navigation("Locations");
                 });
 #pragma warning restore 612, 618
         }
