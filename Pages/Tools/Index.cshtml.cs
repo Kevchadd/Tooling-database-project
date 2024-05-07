@@ -19,10 +19,18 @@ namespace Final_Project.Pages.Tools
         }
 
         public IList<Tool> Tool { get;set; } = default!;
+        [BindProperty(SupportsGet = true)]
+        public int PageNum {get;set;} = 1;
+
+        public int PageSize { get;set; } = 8;
+
+        public int TotalToolsCount { get; set; } 
+
 
         public async Task OnGetAsync()
         {
-            Tool = await _context.Tools.ToListAsync();
+            Tool = await _context.Tools.Skip((PageNum-1)*PageSize).Take(PageSize).ToListAsync();
+            TotalToolsCount = await _context.Tools.CountAsync(); // Get total count
         }
     }
 }

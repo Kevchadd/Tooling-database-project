@@ -46,3 +46,32 @@
 }
     </tbody>
 </table>
+<hr/>
+@{
+    // If we are on page 1, prevDisabled will be set to the "disabled" class
+    // otherwise, it will be empty. So our previous button will be enabled or disabled based on this logic
+    var prevDisabled = "";
+    var nexDisabled = "";
+
+   // Calculate the total number of items on the current page
+    var totalToolsOnPage = Model.PageSize * (Model.PageNum - 1) + Model.Tool.Count;
+
+    // Check if there are more items in the database for the next page
+    if (totalToolsOnPage >= Model.TotalToolsCount)
+    {
+        nexDisabled = "disabled";
+    }
+
+    if (Model.PageNum <= 1)
+    {
+        prevDisabled = "disabled";
+    }
+}
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        <!-- FIXME: These buttons will forget your current sort order! -->
+        <li class="page-item @prevDisabled"><a class="page-link" asp-page="./Index" asp-route-PageNum="@(Model.PageNum - 1)">Previous</a></li>
+        <li class="page-item @nexDisabled"><a class="page-link" asp-page="./Index" asp-route-PageNum="@(Model.PageNum + 1)">Next</a></li>
+    </ul>
+</nav>
