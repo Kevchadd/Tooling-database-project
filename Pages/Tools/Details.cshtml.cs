@@ -27,11 +27,9 @@ namespace Final_Project.Pages.Tools
                 return NotFound();
             }
 
-<<<<<<< HEAD
+
             var tool = await _context.Tools.Include(m => m.Location).FirstOrDefaultAsync(m => m.ToolId == id);
-=======
-            var tool = await _context.Tools.Include(m => m.Locations).FirstOrDefaultAsync(m => m.ToolId == id);
->>>>>>> b095c936b59145ddc7e69e25af179a5b882dbe42
+
             if (tool == null)
             {
                 return NotFound();

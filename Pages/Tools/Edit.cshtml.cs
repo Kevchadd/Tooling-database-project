@@ -8,29 +8,15 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Final_Tooling_Project.Models;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> b095c936b59145ddc7e69e25af179a5b882dbe42
 namespace Final_Project.Pages.Tools
 {
     public class EditModel : PageModel
     {
         private readonly Final_Tooling_Project.Models.ToolDbContext _context;
 
-<<<<<<< HEAD
         public EditModel(Final_Tooling_Project.Models.ToolDbContext context)
         {
             _context = context;
-=======
-        [BindProperty]
-        public Location? Location {get; set;} = default!;
-       
-        public EditModel(Final_Tooling_Project.Models.ToolDbContext context)
-        {
-            _context = context;
-      
->>>>>>> b095c936b59145ddc7e69e25af179a5b882dbe42
         }
 
         [BindProperty]
@@ -49,23 +35,7 @@ namespace Final_Project.Pages.Tools
                 return NotFound();
             }
             Tool = tool;
-<<<<<<< HEAD
             return Page();
-=======
-             
-             Location = await _context.Locations.FirstOrDefaultAsync(l => l.ToolId == Tool.ToolId);
-             if (Location == null)
-             {
-                 return NotFound(); 
-             }   
-
-                
-
-         
-            return Page();
-
-           
->>>>>>> b095c936b59145ddc7e69e25af179a5b882dbe42
         }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to.
@@ -79,20 +49,8 @@ namespace Final_Project.Pages.Tools
 
             _context.Attach(Tool).State = EntityState.Modified;
 
-<<<<<<< HEAD
             try
             {
-=======
-            try{
-
-             if(Location !=null)
-
-             {
-                    _context.Update(Location);
-             }
-            // Update the tool location in the database
-            
->>>>>>> b095c936b59145ddc7e69e25af179a5b882dbe42
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
@@ -115,8 +73,4 @@ namespace Final_Project.Pages.Tools
             return _context.Tools.Any(e => e.ToolId == id);
         }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> b095c936b59145ddc7e69e25af179a5b882dbe42
