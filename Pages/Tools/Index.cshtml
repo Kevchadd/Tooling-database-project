@@ -5,7 +5,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Tool Index Page</h1>
 
 <p>
     <a asp-page="Create">Create New</a>
@@ -14,7 +14,17 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Tool[0].ToolName)
+                  @{                   
+                    
+        var firstSort = "first_asc";
+
+                            if (Model.CurrentSort == "first_asc")
+                            {
+                                firstSort = "first_desc";
+                            }
+                            }
+            <a asp-page="./Index" asp-route-CurrentSort="@firstSort">@Html.DisplayNameFor(model => model.Tool[0].ToolName)</a>
+            
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Tool[0].ToolClub)
@@ -71,7 +81,7 @@
 <nav aria-label="Page navigation example">
     <ul class="pagination">
         <!-- FIXME: These buttons will forget your current sort order! -->
-        <li class="page-item @prevDisabled"><a class="page-link" asp-page="./Index" asp-route-PageNum="@(Model.PageNum - 1)">Previous</a></li>
-        <li class="page-item @nexDisabled"><a class="page-link" asp-page="./Index" asp-route-PageNum="@(Model.PageNum + 1)">Next</a></li>
+        <li class="page-item @prevDisabled"><a class="page-link" asp-page="./Index"  asp-route-PageNum="@(Model.PageNum - 1)" asp-route-CurrentSort="@Model.CurrentSort">Previous</a></li>
+        <li class="page-item @nexDisabled"><a class="page-link" asp-page="./Index"  asp-route-PageNum="@(Model.PageNum + 1)" asp-route-CurrentSort="@Model.CurrentSort">Next</a></li>
     </ul>
 </nav>

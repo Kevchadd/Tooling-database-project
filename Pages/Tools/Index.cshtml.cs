@@ -26,11 +26,30 @@ namespace Final_Project.Pages.Tools
 
         public int TotalToolsCount { get; set; } 
 
+        [BindProperty(SupportsGet = true)]
+        public string CurrentSort {get;set; }
 
         public async Task OnGetAsync()
         {
-            Tool = await _context.Tools.Skip((PageNum-1)*PageSize).Take(PageSize).ToListAsync();
             TotalToolsCount = await _context.Tools.CountAsync(); // Get total count
+
+            var query = _context.Tools.Select(t =>t);
+
+            switch (CurrentSort)
+            {
+                case "first_asc":
+                    query = query.OrderBy(t => t.ToolName);
+                    break;
+ 
+                    case "first_desc":
+                    query = query.OrderByDescending(t => t.ToolName);
+                    break;
+
+
+            }
+
+            Tool = await query.Skip((PageNum-1)*PageSize).Take(PageSize).ToListAsync();
+           
         }
     }
 }
