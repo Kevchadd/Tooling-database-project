@@ -13,6 +13,10 @@ namespace Final_Project.Pages.Tools
     public class EditModel : PageModel
     {
         private readonly Final_Tooling_Project.Models.ToolDbContext _context;
+        [BindProperty]
+        public Location Location { get; set; }= default!;
+
+        public SelectList LocationDropDown {get; set; }= default!;
 
         public EditModel(Final_Tooling_Project.Models.ToolDbContext context)
         {
@@ -35,8 +39,15 @@ namespace Final_Project.Pages.Tools
                 return NotFound();
             }
             Tool = tool;
+
+            // Populate the LocationDropDown
+            var locations = await _context.Locations.ToListAsync();
+            LocationDropDown = new SelectList(locations, "LocationId", "LocationDesc");
+
+
             return Page();
         }
+        
 
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see https://aka.ms/RazorPagesCRUD.
@@ -47,7 +58,14 @@ namespace Final_Project.Pages.Tools
                 return Page();
             }
 
-            _context.Attach(Tool).State = EntityState.Modified;
+                    // Retrieve the selected LocationId from the dropdown
+                         int selectedLocationId = Location.LocationId; 
+                    // Find the Location entity based on the selected LocationId
+                        var selectedLocation = await _context.Locations.FindAsync(selectedLocationId);
+                    // Assign the selected Location to the Tool
+                        Tool.Location = selectedLocation;
+
+            _context.Entry(Tool).State = EntityState.Modified;
 
             try
             {
