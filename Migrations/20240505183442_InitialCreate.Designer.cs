@@ -2,6 +2,7 @@
 using Final_Tooling_Project.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -9,9 +10,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Final_Project.Migrations
 {
     [DbContext(typeof(ToolDbContext))]
-    partial class ToolDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240505183442_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.4");
@@ -26,20 +29,13 @@ namespace Final_Project.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-<<<<<<< HEAD
-                    b.Property<int>("ToolID")
-=======
                     b.Property<int>("ToolId")
->>>>>>> b095c936b59145ddc7e69e25af179a5b882dbe42
                         .HasColumnType("INTEGER");
 
                     b.HasKey("LocationId");
 
-<<<<<<< HEAD
-=======
                     b.HasIndex("ToolId");
 
->>>>>>> b095c936b59145ddc7e69e25af179a5b882dbe42
                     b.ToTable("Locations");
                 });
 
@@ -52,9 +48,6 @@ namespace Final_Project.Migrations
                     b.Property<bool>("InService")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("LocationId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("ToolClub")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -65,27 +58,9 @@ namespace Final_Project.Migrations
 
                     b.HasKey("ToolId");
 
-                    b.HasIndex("LocationId");
-
                     b.ToTable("Tools");
                 });
 
-<<<<<<< HEAD
-            modelBuilder.Entity("Final_Tooling_Project.Models.Tool", b =>
-                {
-                    b.HasOne("Final_Tooling_Project.Models.Location", "Location")
-                        .WithMany("Tools")
-                        .HasForeignKey("LocationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Location");
-                });
-
-            modelBuilder.Entity("Final_Tooling_Project.Models.Location", b =>
-                {
-                    b.Navigation("Tools");
-=======
             modelBuilder.Entity("Final_Tooling_Project.Models.Location", b =>
                 {
                     b.HasOne("Final_Tooling_Project.Models.Tool", "Tool")
@@ -100,7 +75,6 @@ namespace Final_Project.Migrations
             modelBuilder.Entity("Final_Tooling_Project.Models.Tool", b =>
                 {
                     b.Navigation("Locations");
->>>>>>> b095c936b59145ddc7e69e25af179a5b882dbe42
                 });
 #pragma warning restore 612, 618
         }
