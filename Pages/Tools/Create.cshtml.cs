@@ -30,7 +30,7 @@ namespace Final_Project.Pages.Tools
     [BindProperty]
     public int SelectedLocationId { get; set; }
 
-    public SelectList LocationDropDown { get; set; }
+    public SelectList? LocationDropDown { get; set; }
 
     public async Task<IActionResult> OnPostAsync()
     {
