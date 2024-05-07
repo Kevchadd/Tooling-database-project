@@ -1,10 +1,6 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "amNDgJJnDODXNusvL54S1xPi7jC3zbFggFtD15ny9o1HmXAXE54MB2Sf45w4BxkfJIUmIm1HinEMgCKyNhzM/A==",
-=======
-  "dgSpecHash": "qsJFj0TvUujaugJQpuXxvwg6GA6uwPsWItdzFlfJWM3KIodUedS8jHnM4N1C75Ekcp5KIRxFcvhrwSvpYNGkjg==",
->>>>>>> b095c936b59145ddc7e69e25af179a5b882dbe42
   "success": true,
   "projectFilePath": "c:\\Users\\kctwi\\OneDrive\\Documents\\GitHub\\Final_Project\\Final_Project.csproj",
   "expectedPackageFiles": [

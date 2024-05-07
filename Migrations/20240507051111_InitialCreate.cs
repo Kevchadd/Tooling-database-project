@@ -17,7 +17,7 @@ namespace Final_Project.Migrations
                     LocationId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     LocationDesc = table.Column<string>(type: "TEXT", nullable: false),
-                    ToolID = table.Column<int>(type: "INTEGER", nullable: false)
+                    ToolId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -33,7 +33,7 @@ namespace Final_Project.Migrations
                     ToolName = table.Column<string>(type: "TEXT", nullable: false),
                     ToolClub = table.Column<string>(type: "TEXT", nullable: false),
                     InService = table.Column<bool>(type: "INTEGER", nullable: false),
-                    LocationId = table.Column<int>(type: "INTEGER", nullable: false)
+                    LocationId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -42,8 +42,7 @@ namespace Final_Project.Migrations
                         name: "FK_Tools_Locations_LocationId",
                         column: x => x.LocationId,
                         principalTable: "Locations",
-                        principalColumn: "LocationId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "LocationId");
                 });
 
             migrationBuilder.CreateIndex(
