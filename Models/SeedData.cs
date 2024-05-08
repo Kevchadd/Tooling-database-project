@@ -103,9 +103,7 @@ namespace Final_Tooling_Project.Models
                         InService = true,
                         LocationId = locations[3].LocationId // Assign to Building 4
 
-                    }
-
-                    
+                    }                    
                     ,
                      new Tool
                     {

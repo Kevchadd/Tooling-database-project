@@ -10,6 +10,7 @@ public class Location
 {
     public int LocationId { get; set; }// Primary Key
 
+ 
     [DisplayName("Location")]
     public string LocationDesc { get; set;} = string.Empty;//Location of tool
 

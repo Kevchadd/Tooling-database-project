@@ -1,0 +1,43 @@
+@page
+@model Final_Project.Pages.Tools.SearchModel
+
+<h1>Search for Tool</h1>
+
+<form method="get">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Enter tool name" aria-label="Enter tool name" aria-describedby="search-button" name="searchTerm">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="submit" id="search-button">Search</button>
+        </div>
+    </div>
+</form>
+
+@if (Model.Tools != null && Model.Tools.Any())
+{
+    <h2>Search Results</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Tool Name</th>
+                <th>Tool Club</th>
+                <th>In Service</th>
+                <th>Location</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var tool in Model.Tools)
+            {
+                <tr>
+                    <td>@tool.ToolName</td>
+                    <td>@tool.ToolClub</td>
+                    <td>@tool.InService</td>
+                    <td>@tool.Location.LocationDesc</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No results found.</p>
+}
