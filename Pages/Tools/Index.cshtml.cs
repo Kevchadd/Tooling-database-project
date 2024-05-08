@@ -27,7 +27,7 @@ namespace Final_Project.Pages.Tools
         public int TotalToolsCount { get; set; } 
 
         [BindProperty(SupportsGet = true)]
-        public string CurrentSort {get;set; }
+        public string? CurrentSort {get;set; }
 
         public async Task OnGetAsync()
         {

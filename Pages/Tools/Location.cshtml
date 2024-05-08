@@ -1,0 +1,78 @@
+@page
+@model Final_Project.Pages.Tools.LocationModel 
+
+@{
+    ViewData["Title"] = "Location";
+}
+
+<h1>Location Index Page</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @{
+                    var firstSort = "first_asc";
+                    if (Model.CurrentSort == "first_asc")
+                    {
+                        firstSort = "first_desc";
+                    }
+                }
+                <a asp-page="./Location" asp-route-CurrentSort="@firstSort">@Html.DisplayNameFor(model => model.Locations[0].LocationDesc)</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var location in Model.Locations)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => location.LocationDesc)
+                </td>
+                <td>
+                    <ul>
+                        @foreach (var tool in location.Tools)
+                        {
+                            <li>@tool.ToolName</li>
+                        }
+                    </ul>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<hr/>
+@{
+    var prevDisabled = "";
+    var nexDisabled = "";
+
+    var totalLocationsOnPage = Model.PageSize * (Model.PageNum - 1) + Model.Locations.Count;
+
+    if (totalLocationsOnPage >= Model.TotalLocCount)
+    {
+        nexDisabled = "disabled";
+    }
+
+    if (Model.PageNum <= 1)
+    {
+        prevDisabled = "disabled";
+    }
+}
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        <li class="page-item @prevDisabled">
+            <a class="page-link" asp-page="./Location" asp-route-PageNum="@(Model.PageNum - 1)" asp-route-CurrentSort="@Model.CurrentSort">Previous</a>
+        </li>
+        <li class="page-item @nexDisabled">
+            <a class="page-link" asp-page="./Location" asp-route-PageNum="@(Model.PageNum + 1)" asp-route-CurrentSort="@Model.CurrentSort">Next</a>
+        </li>
+    </ul>
+</nav>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
