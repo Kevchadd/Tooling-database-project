@@ -1,0 +1,15 @@
+@page
+@model Final_Project.Pages.Tools.AddLocationModel
+@{
+    ViewData["Title"] = "Add Location";
+}
+
+<h1>Add Location</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="locationDesc">Location Description</label>
+        <input type="text" class="form-control" id="locationDesc" name="LocationDesc" />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

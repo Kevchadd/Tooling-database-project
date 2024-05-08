@@ -25,7 +25,7 @@ namespace Final_Project.Pages.Tools
             {
                 return Page();
             }
-            //Bring in location make lowercase 
+            //Bring in location make lowercase
             Tools = await _context.Tools
                 .Include(t => t.Location)
                 .Where(t => EF.Functions.Like(t.ToolName.ToLower(), $"%{searchTerm.ToLower()}%") ||
